@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practise</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: flex-start;
+            align-items: center;
+        }   
+        
+        .container{
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column-reverse;
+            background-color: rgba(51, 60, 62, 0.159);
+            width: 600px;
+            height: 640px;
+            top: 5%;
+            border-radius: 2mm; 
+            position: absolute;
+            border: 6mm;
+            border-color: black;
+            border-style: solid;
+        }
+        .output{
+            border: 1mm solid black;
+            border-radius: 9mm;
+            display: block;
+            background-color: rgb(64, 61, 61);
+            height: 110px;
+            width: 85%;
+            margin-left: 8%;
+            margin-top: 5%;
+            color: aliceblue;
+        }
+        .button{
+            margin-left: 8%;
+            margin-right: 8%;
+            margin-top: 4%;
+            align-content: center;
+            align-content: space-evenly;
+        }
+        .bton{
+            border-radius: 9mm;
+            background-color: rgb(16, 12, 12);
+            height: 70px;
+            width: 70px;
+            margin-left: 8%;
+            color: white;
+        }
+        .operation{
+            border-radius: 10cm;
+            background-color: rgb(11, 7, 7);
+            height: 70px;
+            width: 100px;
+            margin-left: 8%;
+            color: white;
+        }
+        .result{
+           
+            border-radius: 5mm;
+            margin-top: 2%;
+            height: 35px;
+            width: 300px;
+            margin-left: 8%;
+        }
+        
+    </style>
+</head>
+<body>
+        <div class="container">
+            <div class="output">
+                <input class="result" type="text" id="out" placeholder="                                 You Enter" readonly style="margin-left: 20%;">   
+                <input class="result" type="text" id="result" placeholder="                      Result will be shown here" readonly style=" margin-left: 20%;">
+            </div>
+            <div class="button" id="digit">
+                <button class="bton" onclick="out(this)" value="1">1</button>
+                <button class="bton" onclick="out(this)" value="2">2</button>
+                <button class="bton" onclick="out(this)" value="3">3</button>
+                <button class="operation" id="Arithmetic" onclick="setOperation(this)" value="+">+</button>
+            </div>
+            <div class="button" id="digit">
+                <button class="bton" onclick="out(this)" value="4">4</button>
+                <button class="bton" onclick="out(this)" value="5">5</button>
+                <button class="bton" onclick="out(this)" value="6">6</button>
+                <button class="operation" id="Arithmetic" onclick="setOperation(this)" value="-">__</button>
+            </div>
+            <div class="button" id="digit">
+                <button class="bton" onclick="out(this)" value="7">7</button>
+                <button class="bton" onclick="out(this)" value="8">8</button>
+                <button class="bton" onclick="out(this)" value="9">9</button>
+                <button class="operation" id="Arithmetic" onclick="setOperation(this)" value="/">/</button>
+            </div>
+            <div class="button" id="digit">
+                <button class="bton" onclick="out(this)" style="margin-left: 8%;" value="0">0</button>
+                <button style="width: 170px;height: 70px; margin-left: 8%;margin-top: 5%;margin-right: 2.5%;" class="bton" onclick="answer()">submit</button>    
+                <button class="operation" id="Arithmetic" onclick="setOperation(this)" value="*">*</button>
+            </div>
+            
+        </div>
+    
+</body>
+        <script>
+            var num1, oper, num2;
+            
+            function out(element) {
+                document.getElementById('out').value += element.value;
+            }
+    
+            function setOperation(element) {
+                oper = element.value;
+                document.getElementById('out').value += ' ' + oper + ' ';
+            }
+    
+            function answer(){
+                var input = document.getElementById('out').value;
+                var parts = input.split(' ');
+                num1 = parseFloat(parts[0]);
+                oper = parts[1];
+                num2 = parseFloat(parts[2]);
+    
+                switch(oper){
+                    case '+':
+                        result = num1 + num2;
+                        break;  
+                    case '-':
+                        result = num1 - num2;
+                        break;  
+                    case '*':
+                        result = num1 * num2;
+                        break;  
+                    case '/':
+                        result = num1 / num2;
+                        break;    
+                    default:
+                        result = "error";
+                }  
+                document.getElementById('result').value = result;
+            }
+        </script>
+</html>

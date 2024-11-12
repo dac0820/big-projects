@@ -1,4 +1,5 @@
 <html>
+<body>
 <h1>
     <span>Dhruvil Chandariya</span>
 </h1>
@@ -35,5 +36,6 @@
       <img src="https://github-readme-stats.vercel.app/api/top-langs?username=dac0820&theme=nord&bg_color=EB545400&layout=compact"/>
 <!--         </a> -->
     </p>        
-</div>    
+</div>
+</body>
 </html>
